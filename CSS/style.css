@@ -75,7 +75,7 @@ body {
   height: 40px;
   font-size: inherit;
   color: inherit;
-  transition: all 0.4s;
+  transition: all 0.3s;
 }
 
 .btn:hover {
