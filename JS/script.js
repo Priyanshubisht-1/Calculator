@@ -3,9 +3,7 @@
 const inputBoxHis = document.querySelector('.calc-history');
 const inputBoxAns = document.querySelector('.calc-answer');
 
-inputBoxAns.value = '';
 inputBoxAns.focus();
-inputBoxAns.value = '0';
 
 const isAllowed = function () {
   // console.log(event.key, event.keyCode);
@@ -32,11 +30,6 @@ for (let item of btn) {
       !item.classList.contains('btn-sp') &&
       item.textContent !== '+/-'
     )
-      if (inputBoxAns.value.startsWith('0'))
-        inputBoxAns.value = item.textContent;
-      else {
-        inputBoxAns.value += item.textContent;
-      }
   });
 
   if (item.classList.contains('btn-sp') || item.textContent === '+/-') {
@@ -50,7 +43,7 @@ for (let item of btn) {
 
         case 'AC':
           inputBoxHis.value = '';
-          inputBoxAns.value = '0';
+          inputBoxAns.value = '';
           inputBoxAns.focus();
           break;
 
@@ -94,8 +87,6 @@ document.querySelector('.calc-btn').addEventListener('click', function () {
 });
 
 document.querySelector('.calc-answer').addEventListener('keydown', function () {
-  if (inputBoxAns.value.startsWith('0'))
-    inputBoxAns.value = inputBoxAns.value.slice(1);
   if (event.key === 'Enter') {
     inputBoxHis.value = inputBoxAns.value;
     inputBoxAns.value = Number(
@@ -103,7 +94,7 @@ document.querySelector('.calc-answer').addEventListener('keydown', function () {
     );
     if (inputBoxAns.value === 'NaN') inputBoxAns.value = Infinity;
   } else if (event.key === 'Backspace') {
-    inputBoxAns.value = inputBoxAns.value.replace('Infinity', '0');
+    inputBoxAns.value = inputBoxAns.value.replace('Infinity', '');
   }
   inputBoxAns.focus();
 });
