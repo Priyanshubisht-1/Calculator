@@ -49,7 +49,7 @@ for (let item of btn) {
             inputBoxAns.value[1] === '(' &&
             inputBoxAns.value[inputBoxAns.value.length - 1] === ')'
           ) {
-            const sign = inputBoxAns.value[0] === '+' ? '-' : '';
+            const sign = inputBoxAns.value[0] === '+' ? '-' : '+';
             inputBoxAns.value = `${sign}${inputBoxAns.value.slice(1)}`;
           } else {
             inputBoxAns.value = `-(${inputBoxAns.value})`;
