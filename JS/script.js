@@ -87,7 +87,7 @@ document.querySelector('.calc-answer').addEventListener('keydown', function () {
   if (event.key === 'Enter') {
     inputBoxHis.value = inputBoxAns.value;
     inputBoxAns.value = Number(
-      eval(inputBoxAns.value.replaceAll('x', '*')).toFixed(10)
+      eval(inputBoxAns.value.replaceAll('x', '*')).toFixed(8)
     );
     if (inputBoxAns.value === 'NaN') inputBoxAns.value = Infinity;
   } else if (event.key === 'Backspace') {
