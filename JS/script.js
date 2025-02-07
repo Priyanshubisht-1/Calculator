@@ -33,7 +33,6 @@ for (let item of btn) {
   if (item.classList.contains('btn-sp') || item.textContent === '+/-') {
     item.addEventListener('click', function () {
       const act = item.textContent;
-
       switch (act) {
         case '%':
           inputBoxAns.value = `(${inputBoxAns.value})/100`;
@@ -78,7 +77,7 @@ for (let item of btn) {
 document.querySelector('.calc-btn').addEventListener('click', function () {
   inputBoxHis.value = inputBoxAns.value;
   inputBoxAns.value = Number(
-    eval(inputBoxAns.value.replace('x', '*')).toFixed(10)
+    eval(inputBoxAns.value.replaceAll('x', '*')).toFixed(10)
   );
   if (inputBoxAns.value === 'NaN') inputBoxAns.value = Infinity;
   inputBoxAns.focus();
@@ -88,11 +87,11 @@ document.querySelector('.calc-answer').addEventListener('keydown', function () {
   if (event.key === 'Enter') {
     inputBoxHis.value = inputBoxAns.value;
     inputBoxAns.value = Number(
-      eval(inputBoxAns.value.replace('x', '*')).toFixed(10)
+      eval(inputBoxAns.value.replaceAll('x', '*')).toFixed(10)
     );
     if (inputBoxAns.value === 'NaN') inputBoxAns.value = Infinity;
   } else if (event.key === 'Backspace') {
-    inputBoxAns.value = inputBoxAns.value.replace('Infinity', '');
+    inputBoxAns.value = inputBoxAns.value.replaceAll('Infinity', '');
   }
   inputBoxAns.focus();
 });
