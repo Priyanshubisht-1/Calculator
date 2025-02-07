@@ -1,12 +1,9 @@
 // 'use strict';
-
 const inputBoxHis = document.querySelector('.calc-history');
 const inputBoxAns = document.querySelector('.calc-answer');
-
 inputBoxAns.focus();
 
 const isAllowed = function () {
-  // console.log(event.key, event.keyCode);
   if (event.keyCode >= 48 && event.keyCode <= 57) return true;
   else if (
     event.key === '+' ||
@@ -30,6 +27,7 @@ for (let item of btn) {
       !item.classList.contains('btn-sp') &&
       item.textContent !== '+/-'
     )
+      inputBoxAns.value += item.textContent;
   });
 
   if (item.classList.contains('btn-sp') || item.textContent === '+/-') {
