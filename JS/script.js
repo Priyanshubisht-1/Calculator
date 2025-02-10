@@ -1,6 +1,8 @@
 // 'use strict';
 const inputBoxHis = document.querySelector('.calc-history');
 const inputBoxAns = document.querySelector('.calc-answer');
+const math = require('mathjs');
+
 inputBoxAns.focus();
 
 const isAllowed = function () {
@@ -77,7 +79,7 @@ for (let item of btn) {
 document.querySelector('.calc-btn').addEventListener('click', function () {
   inputBoxHis.value = inputBoxAns.value;
   inputBoxAns.value = Number(
-    eval(inputBoxAns.value.replaceAll('x', '*')).toFixed(10)
+    math.evaluate(inputBoxAns.value.replaceAll('x', '*')).toFixed(10)
   );
   if (inputBoxAns.value === 'NaN') inputBoxAns.value = Infinity;
   inputBoxAns.focus();
@@ -87,7 +89,7 @@ document.querySelector('.calc-answer').addEventListener('keydown', function () {
   if (event.key === 'Enter') {
     inputBoxHis.value = inputBoxAns.value;
     inputBoxAns.value = Number(
-      eval(inputBoxAns.value.replaceAll('x', '*')).toFixed(8)
+      math.evaluate(inputBoxAns.value.replaceAll('x', '*')).toFixed(8)
     );
     if (inputBoxAns.value === 'NaN') inputBoxAns.value = Infinity;
   } else if (event.key === 'Backspace') {
