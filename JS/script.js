@@ -1,7 +1,6 @@
 // 'use strict';
 const inputBoxHis = document.querySelector('.calc-history');
 const inputBoxAns = document.querySelector('.calc-answer');
-const math = require('mathjs');
 
 inputBoxAns.focus();
 
